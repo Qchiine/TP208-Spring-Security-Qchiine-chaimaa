@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acces refuse</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="conteneur etroit">
+    <span class="badge refuse">Code HTTP 403</span>
+    <h1>Acces refuse</h1>
+    <p>
+        Votre compte ne dispose pas des droits necessaires pour consulter cette page.
+        Il vous manque le role attendu.
+    </p>
+    <p class="note">
+        Exemple : un compte USER ne peut pas ouvrir l'espace administrateur,
+        reserve au role ADMIN.
+    </p>
+    <p class="pied">
+        <a th:href="@{/}">Accueil</a>
+        <span class="separateur">|</span>
+        <a th:href="@{/logout}">Changer de compte</a>
+    </p>
+</div>
+</body>
+</html>

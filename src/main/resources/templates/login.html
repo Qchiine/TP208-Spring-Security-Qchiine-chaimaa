@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Application securisee</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="conteneur etroit">
+    <h1>Veuillez vous identifier</h1>
+
+    <div class="alerte erreur" th:if="${erreur}">
+        Identifiant ou mot de passe invalide.
+    </div>
+    <div class="alerte succes" th:if="${sortie}">
+        Vous avez ete deconnecte avec succes.
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <div class="champ">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" name="username" required autofocus>
+        </div>
+        <div class="champ">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <table class="rappel">
+        <thead>
+        <tr><th>Compte</th><th>Mot de passe</th><th>Acces</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>user</td><td>1111</td><td>utilisateur</td></tr>
+        <tr><td>admin</td><td>1234</td><td>utilisateur + administration</td></tr>
+        <tr><td>invite</td><td>0000</td><td>aucun espace</td></tr>
+        </tbody>
+    </table>
+
+    <p class="pied"><a th:href="@{/}">Retour a l'accueil</a></p>
+</div>
+</body>
+</html>

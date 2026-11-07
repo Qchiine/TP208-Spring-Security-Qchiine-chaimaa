@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Espace utilisateur</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="conteneur">
+    <span class="badge utilisateur">Zone securisee - role USER</span>
+    <h1>Tableau de bord utilisateur</h1>
+
+    <table class="infos">
+        <tbody>
+        <tr><th>Utilisateur connecte</th><td th:text="${utilisateur}">-</td></tr>
+        <tr><th>Roles accordes</th><td th:text="${roles}">-</td></tr>
+        <tr><th>Derniere connexion</th>
+            <td th:text="${derniereConnexion.orElse('premiere session')}">-</td></tr>
+        </tbody>
+    </table>
+
+    <p class="note">
+        Cette page exige le role USER. Un compte depourvu de ce role est renvoye
+        vers la page d'acces refuse.
+    </p>
+
+    <p class="pied">
+        <a th:href="@{/}">Accueil</a>
+        <span class="separateur">|</span>
+        <a th:href="@{/logout}">Se deconnecter</a>
+    </p>
+</div>
+</body>
+</html>

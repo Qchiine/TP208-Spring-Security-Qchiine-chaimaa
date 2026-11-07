@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil - Application securisee</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="conteneur">
+    <h1>Application de demonstration Spring Security</h1>
+    <p class="sous-titre">Authentification en memoire, roles et mots de passe chiffres</p>
+
+    <div class="cartes">
+        <a class="carte" th:href="@{/user/dashboard}">
+            <span class="carte-titre">Espace Utilisateur</span>
+            <span class="carte-detail">Reserve au role USER</span>
+        </a>
+        <a class="carte" th:href="@{/admin/dashboard}">
+            <span class="carte-titre">Espace Administrateur</span>
+            <span class="carte-detail">Reserve au role ADMIN</span>
+        </a>
+        <a class="carte" th:href="@{/admin/journal}">
+            <span class="carte-titre">Journal des connexions</span>
+            <span class="carte-detail">Succes et echecs horodates</span>
+        </a>
+    </div>
+
+    <div class="comptes">
+        <h2>Comptes de demonstration</h2>
+        <table>
+            <thead>
+            <tr><th>Identifiant</th><th>Mot de passe</th><th>Roles</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>user</td><td>1111</td><td>USER</td></tr>
+            <tr><td>admin</td><td>1234</td><td>ADMIN, USER</td></tr>
+            <tr><td>invite</td><td>0000</td><td>INVITE (aucun acces)</td></tr>
+            </tbody>
+        </table>
+        <p class="note">Les mots de passe sont haches avec BCrypt avant d'etre stockes.</p>
+    </div>
+
+    <p class="pied">
+        <a th:href="@{/login}">Se connecter</a>
+    </p>
+</div>
+</body>
+</html>

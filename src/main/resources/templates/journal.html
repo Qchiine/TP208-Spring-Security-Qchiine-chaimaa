@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Journal des connexions</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="conteneur">
+    <span class="badge administrateur">Zone securisee - role ADMIN</span>
+    <h1>Journal des connexions</h1>
+    <p class="sous-titre">
+        Tentatives : <strong th:text="${total}">0</strong>
+        dont <strong th:text="${echecs}">0</strong> echec(s)
+    </p>
+
+    <p class="note" th:if="${#lists.isEmpty(entrees)}">
+        Aucune tentative enregistree pour le moment.
+    </p>
+
+    <table th:unless="${#lists.isEmpty(entrees)}">
+        <thead>
+        <tr><th>Horodatage</th><th>Utilisateur</th><th>Issue</th><th>Motif</th></tr>
+        </thead>
+        <tbody>
+        <tr th:each="entree : ${entrees}">
+            <td th:text="${entree.moment}">-</td>
+            <td th:text="${entree.utilisateur}">-</td>
+            <td>
+                <span class="etiquette"
+                      th:classappend="${entree.reussie} ? 'ok' : 'ko'"
+                      th:text="${entree.issue()}">-</span>
+            </td>
+            <td th:text="${#strings.isEmpty(entree.motif)} ? '-' : ${entree.motif}">-</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p class="pied">
+        <a th:href="@{/admin/dashboard}">Tableau de bord</a>
+        <span class="separateur">|</span>
+        <a th:href="@{/}">Accueil</a>
+    </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+/* ==========================================================================
+   Feuille de style unique de l'application de demonstration.
+   Palette sobre, cartes pour l'accueil, tableaux lisibles pour les comptes
+   et un code couleur net pour distinguer succes, echec et refus.
+   ========================================================================== */
+
+:root {
+    --fond: #f4f6fb;
+    --surface: #ffffff;
+    --texte: #1f2937;
+    --texte-doux: #64748b;
+    --bordure: #e2e8f0;
+    --accent: #2563eb;
+    --succes: #15803d;
+    --succes-fond: #dcfce7;
+    --echec: #b91c1c;
+    --echec-fond: #fee2e2;
+    --admin: #7c3aed;
+    --admin-fond: #ede9fe;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 48px 16px;
+    background: var(--fond);
+    color: var(--texte);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+}
+
+.conteneur {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 36px 40px;
+    background: var(--surface);
+    border: 1px solid var(--bordure);
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+}
+
+.conteneur.etroit {
+    max-width: 460px;
+}
+
+h1 {
+    margin: 0 0 6px;
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    margin: 32px 0 12px;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--texte-doux);
+}
+
+.sous-titre {
+    margin: 0 0 28px;
+    color: var(--texte-doux);
+}
+
+.cartes {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-bottom: 8px;
+}
+
+.carte {
+    display: block;
+    padding: 18px 20px;
+    border: 1px solid var(--bordure);
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s, transform 0.15s;
+}
+
+.carte:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.carte-titre {
+    display: block;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.carte-detail {
+    display: block;
+    font-size: 0.86rem;
+    color: var(--texte-doux);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 18px;
+    font-size: 0.94rem;
+}
+
+th, td {
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--bordure);
+}
+
+thead th {
+    background: #f8fafc;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--texte-doux);
+}
+
+table.infos th {
+    width: 42%;
+    font-weight: 600;
+    color: var(--texte-doux);
+}
+
+.champ {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--bordure);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+input:focus {
+    outline: 2px solid rgba(37, 99, 235, 0.35);
+    border-color: var(--accent);
+}
+
+button {
+    width: 100%;
+    padding: 11px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.alerte {
+    padding: 11px 14px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+}
+
+.alerte.erreur {
+    background: var(--echec-fond);
+    color: var(--echec);
+}
+
+.alerte.succes {
+    background: var(--succes-fond);
+    color: var(--succes);
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 11px;
+    margin-bottom: 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.badge.utilisateur {
+    background: var(--succes-fond);
+    color: var(--succes);
+}
+
+.badge.administrateur {
+    background: var(--admin-fond);
+    color: var(--admin);
+}
+
+.badge.refuse {
+    background: var(--echec-fond);
+    color: var(--echec);
+}
+
+.etiquette {
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.etiquette.ok {
+    background: var(--succes-fond);
+    color: var(--succes);
+}
+
+.etiquette.ko {
+    background: var(--echec-fond);
+    color: var(--echec);
+}
+
+.note {
+    padding: 12px 14px;
+    background: #f8fafc;
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--texte-doux);
+}
+
+.pied {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--bordure);
+    font-size: 0.92rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.separateur {
+    margin: 0 10px;
+    color: var(--bordure);
+}
+
+.rappel {
+    margin-top: 24px;
+    font-size: 0.86rem;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Espace administrateur</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="conteneur">
+    <span class="badge administrateur">Zone securisee - role ADMIN</span>
+    <h1>Tableau de bord administrateur</h1>
+
+    <table class="infos">
+        <tbody>
+        <tr><th>Utilisateur connecte</th><td th:text="${utilisateur}">-</td></tr>
+        <tr><th>Roles accordes</th><td th:text="${roles}">-</td></tr>
+        <tr><th>Tentatives de connexion</th><td th:text="${tentatives}">0</td></tr>
+        <tr><th>Echecs enregistres</th><td th:text="${echecs}">0</td></tr>
+        </tbody>
+    </table>
+
+    <p class="note">
+        Cette page exige le role ADMIN. Le compte user ne peut pas y acceder :
+        Spring Security renvoie alors une erreur 403.
+    </p>
+
+    <p class="pied">
+        <a th:href="@{/admin/journal}">Journal des connexions</a>
+        <span class="separateur">|</span>
+        <a th:href="@{/user/dashboard}">Espace utilisateur</a>
+        <span class="separateur">|</span>
+        <a th:href="@{/}">Accueil</a>
+        <span class="separateur">|</span>
+        <a th:href="@{/logout}">Se deconnecter</a>
+    </p>
+</div>
+</body>
+</html>

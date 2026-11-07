@@ -1,0 +1,10 @@
+target/
+*.log
+*.class
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+enonce-*.txt
