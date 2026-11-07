@@ -1,0 +1,5 @@
+![01-tableau-de-bord-utilisateur-role-user](images/01-tableau-de-bord-utilisateur-role-user.png)
+![02-acces-refuse-code-403](images/02-acces-refuse-code-403.png)
+![03-acces-refuse-detail-de-la-page](images/03-acces-refuse-detail-de-la-page.png)
+![04-tableau-de-bord-administrateur-role-admin](images/04-tableau-de-bord-administrateur-role-admin.png)
+![05-journal-des-connexions](images/05-journal-des-connexions.png)
